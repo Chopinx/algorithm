@@ -3,8 +3,10 @@ package string;
 import com.sun.deploy.util.StringUtils;
 
 /**
- * 解压字符串
- * 例如"bb12{efg}3{c3{e4{b2{tdds}}d}}ef"
+ * Created by Chopin
+ * Description: 解压字符串，例如输入 "a2{3{b}c}d4{e}"，则输出"abbbcbbbcdeeee"
+ * Date: 2017/8/30
+ * Time: 10:47
  */
 public class UnZipString {
     public String unZip(String str) {
