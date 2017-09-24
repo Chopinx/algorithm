@@ -1,4 +1,4 @@
-package string;
+package algorithm.string;
 
 import com.sun.deploy.util.StringUtils;
 

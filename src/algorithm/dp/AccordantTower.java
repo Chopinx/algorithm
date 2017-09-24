@@ -1,4 +1,6 @@
-package dp;
+package algorithm.dp;
+
+import java.util.function.BiFunction;
 
 import static java.lang.Integer.max;
 
@@ -16,7 +18,7 @@ public class AccordantTower {
      * @return 如果可以搭建等高的两个塔则返回最大高度，否则返回-1
      */
     public int accordantTower(int[] array) {
-        if (array.length <= 0) {
+        if (array == null || array.length <= 0) {
             return 0;
         }
         int sum = 0;
@@ -35,7 +37,7 @@ public class AccordantTower {
         }
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < DIF_SIZE; j++) {
-                int h1 = -1, h2 = -1;
+                int h1 = 0, h2 = 0;
                 if (j - array[i] >= 0 && dp[i][j - array[i]] >= 0) {
                     //在1塔增加砖块
                     if (j - sum - array[i] >= 0) {
@@ -61,12 +63,6 @@ public class AccordantTower {
                 dp[i + 1][j] = max(dp[i][j], max(h1, h2));
             }
         }
-        if (dp[array.length][sum] > 0) {
-            System.out.println(dp[array.length][sum]);
-            return dp[array.length][sum];
-        } else {
-            System.out.println(-1);
-            return -1;
-        }
+        return dp[array.length][sum] > 0 ? dp[array.length][sum] : -1;
     }
 }
